@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {sessions: "api/sessions"}
 
+  namespace :api do
     resources :users, only: [:create]
+    resources :reviews, only: [:create, :index]
   end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
