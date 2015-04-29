@@ -15,8 +15,10 @@
       e.preventDefault();
       var _this = this;
       $.post('/api/sessions',{
-        email: this.$('input[name=email]').val(),
-        password: this.$('input[name=password]').val()
+        user: {
+          email: this.$('input[name=email]').val(),
+          password: this.$('input[name=password]').val()
+        }
       }).done(function() {
         _this.alertView.success("Authentication succeeded!");
       }).fail(function() {
