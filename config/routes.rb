@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'homepage#index'
 
   namespace :api do
+    resources :sessions, only: [:create]
     resources :users, only: [:create]
   end
   # Example of regular route:
