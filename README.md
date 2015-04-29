@@ -1,5 +1,12 @@
 # RSpec Demo
 
+## Running the tests
+
+1. `bundle exec rake db:create:all`
+2. `bundle exec rspec`
+
+## Notes
+
 This demo showcases several gems/techniques for RSpec. This is a simple
 app where the homepage allows you to signup and sign in. The forms
 simply makes AJAX calls to the api endpoints `POST /api/users` and `POST
