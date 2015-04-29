@@ -7,7 +7,7 @@ class CreateReviewService
   end
 
   def perform
-    review.create
+    review.save
   end
 
   def valid?
