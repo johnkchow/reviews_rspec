@@ -21,6 +21,11 @@ RSpec.describe Api::SessionsController, type: :controller do
         post :create, params
         expect(response.status).to eq(200)
       end
+
+      it "should have the current user to be logged in" do
+        post :create, params
+        expect(subject.current_user).to eq(user)
+      end
     end
 
     context "when the user hasn't been created" do
