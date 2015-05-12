@@ -5,10 +5,11 @@ RSpec.describe "Logging into the app", js: true, driver: :poltergeist do
     it "should take you to the dashboard" do
       visit '/'
 
-      sleep(5)
-      page.save_screenshot("screenshot.png")
+      page.save_screenshot("screenshot1.png")
 
       click_link "Login"
+
+      page.save_screenshot("screenshot2.png")
 
       within("#normal-login") do
         fill_in "email", with: ENV["CAPYBARA_EMAIL"]
@@ -17,9 +18,11 @@ RSpec.describe "Logging into the app", js: true, driver: :poltergeist do
 
       find('.btn-login').trigger('click')
 
+      page.save_screenshot("screenshot3.png")
+
       expect(page).to have_content("My Review To Do List")
 
-      page.save_screenshot("screenshot.png")
+      page.save_screenshot("screenshot4.png")
     end
   end
 end
