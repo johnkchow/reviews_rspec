@@ -6,7 +6,7 @@ require 'capybara/poltergeist'
 
 Capybara.register_driver :poltergeist do |app|
   options = {
-    debug: false,
+    debug: ENV["DEBUG"].present?,
     timeout: 10,
     js_errors: false,
     window_size: [1280,960],
