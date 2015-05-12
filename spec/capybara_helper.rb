@@ -4,12 +4,14 @@ require 'capybara/rails'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
 
+# NOTE: The --ignore-ssl-errors flag solves the HTTPS issue here: https://github.com/teampoltergeist/poltergeist/issues/619
 Capybara.register_driver :poltergeist do |app|
   options = {
     debug: ENV["DEBUG"].present?,
     timeout: 10,
     js_errors: false,
     window_size: [1280,960],
+    phantomjs_options: ['--ignore-ssl-errors=yes'],
   }
   Capybara::Poltergeist::Driver.new(app, options)
 end
